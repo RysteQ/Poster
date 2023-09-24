@@ -43,12 +43,20 @@
             TabPageAuthentication = new TabPage();
             TabControlResults = new TabControl();
             TabPageRawResults = new TabPage();
+            RichTextBoxRaw = new RichTextBox();
             TabPageJSONResults = new TabPage();
+            RichTextBoxJSON = new RichTextBox();
             TabPagHTMLResults = new TabPage();
+            WebViewHTMLResponse = new Microsoft.Web.WebView2.WinForms.WebView2();
+            ListBoxResponseHistory = new ListBox();
             TabControlRequestParameters.SuspendLayout();
             TabPageParameters.SuspendLayout();
             PanelParameters.SuspendLayout();
             TabControlResults.SuspendLayout();
+            TabPageRawResults.SuspendLayout();
+            TabPageJSONResults.SuspendLayout();
+            TabPagHTMLResults.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)WebViewHTMLResponse).BeginInit();
             SuspendLayout();
             // 
             // ComboBoxMethodSelection
@@ -66,13 +74,13 @@
             TextBoxUrl.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TextBoxUrl.Location = new Point(87, 12);
             TextBoxUrl.Name = "TextBoxUrl";
-            TextBoxUrl.Size = new Size(626, 23);
+            TextBoxUrl.Size = new Size(918, 23);
             TextBoxUrl.TabIndex = 1;
             // 
             // ButtonSendRequest
             // 
             ButtonSendRequest.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonSendRequest.Location = new Point(719, 11);
+            ButtonSendRequest.Location = new Point(1011, 11);
             ButtonSendRequest.Name = "ButtonSendRequest";
             ButtonSendRequest.Size = new Size(69, 24);
             ButtonSendRequest.TabIndex = 2;
@@ -84,10 +92,10 @@
             TabControlRequestParameters.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             TabControlRequestParameters.Controls.Add(TabPageParameters);
             TabControlRequestParameters.Controls.Add(TabPageAuthentication);
-            TabControlRequestParameters.Location = new Point(12, 41);
+            TabControlRequestParameters.Location = new Point(282, 41);
             TabControlRequestParameters.Name = "TabControlRequestParameters";
             TabControlRequestParameters.SelectedIndex = 0;
-            TabControlRequestParameters.Size = new Size(776, 200);
+            TabControlRequestParameters.Size = new Size(798, 200);
             TabControlRequestParameters.TabIndex = 3;
             // 
             // TabPageParameters
@@ -98,7 +106,7 @@
             TabPageParameters.Location = new Point(4, 24);
             TabPageParameters.Name = "TabPageParameters";
             TabPageParameters.Padding = new Padding(3);
-            TabPageParameters.Size = new Size(768, 172);
+            TabPageParameters.Size = new Size(790, 172);
             TabPageParameters.TabIndex = 0;
             TabPageParameters.Text = "Parameters";
             TabPageParameters.UseVisualStyleBackColor = true;
@@ -113,7 +121,7 @@
             PanelParameters.Controls.Add(TextBoxParameterKey);
             PanelParameters.Location = new Point(3, 23);
             PanelParameters.Name = "PanelParameters";
-            PanelParameters.Size = new Size(765, 149);
+            PanelParameters.Size = new Size(787, 149);
             PanelParameters.TabIndex = 9;
             // 
             // CheckBoxIsParameterEnabled
@@ -131,15 +139,15 @@
             TextBoxParameterValue.Enabled = false;
             TextBoxParameterValue.Location = new Point(218, 3);
             TextBoxParameterValue.Name = "TextBoxParameterValue";
-            TextBoxParameterValue.Size = new Size(503, 23);
+            TextBoxParameterValue.Size = new Size(525, 23);
             TextBoxParameterValue.TabIndex = 7;
             // 
             // ButtonDeleteParameter
             // 
             ButtonDeleteParameter.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            ButtonDeleteParameter.Location = new Point(727, 3);
+            ButtonDeleteParameter.Location = new Point(749, 2);
             ButtonDeleteParameter.Name = "ButtonDeleteParameter";
-            ButtonDeleteParameter.Size = new Size(32, 23);
+            ButtonDeleteParameter.Size = new Size(32, 24);
             ButtonDeleteParameter.TabIndex = 8;
             ButtonDeleteParameter.UseVisualStyleBackColor = true;
             // 
@@ -155,7 +163,7 @@
             // 
             LabelValue.Anchor = AnchorStyles.None;
             LabelValue.AutoSize = true;
-            LabelValue.Location = new Point(455, 5);
+            LabelValue.Location = new Point(467, 5);
             LabelValue.Name = "LabelValue";
             LabelValue.Size = new Size(35, 15);
             LabelValue.TabIndex = 4;
@@ -165,7 +173,7 @@
             // 
             LabelKey.Anchor = AnchorStyles.None;
             LabelKey.AutoSize = true;
-            LabelKey.Location = new Point(104, 5);
+            LabelKey.Location = new Point(107, 5);
             LabelKey.Name = "LabelKey";
             LabelKey.Size = new Size(26, 15);
             LabelKey.TabIndex = 3;
@@ -176,7 +184,7 @@
             TabPageAuthentication.Location = new Point(4, 24);
             TabPageAuthentication.Name = "TabPageAuthentication";
             TabPageAuthentication.Padding = new Padding(3);
-            TabPageAuthentication.Size = new Size(768, 172);
+            TabPageAuthentication.Size = new Size(790, 172);
             TabPageAuthentication.TabIndex = 1;
             TabPageAuthentication.Text = "Authentication";
             TabPageAuthentication.UseVisualStyleBackColor = true;
@@ -187,51 +195,96 @@
             TabControlResults.Controls.Add(TabPageRawResults);
             TabControlResults.Controls.Add(TabPageJSONResults);
             TabControlResults.Controls.Add(TabPagHTMLResults);
-            TabControlResults.Location = new Point(16, 247);
+            TabControlResults.Location = new Point(282, 247);
             TabControlResults.Name = "TabControlResults";
             TabControlResults.SelectedIndex = 0;
-            TabControlResults.Size = new Size(768, 191);
+            TabControlResults.Size = new Size(794, 191);
             TabControlResults.TabIndex = 4;
             // 
             // TabPageRawResults
             // 
+            TabPageRawResults.Controls.Add(RichTextBoxRaw);
             TabPageRawResults.Location = new Point(4, 24);
             TabPageRawResults.Name = "TabPageRawResults";
             TabPageRawResults.Padding = new Padding(3);
-            TabPageRawResults.Size = new Size(760, 163);
+            TabPageRawResults.Size = new Size(786, 163);
             TabPageRawResults.TabIndex = 0;
             TabPageRawResults.Text = "Raw";
             TabPageRawResults.UseVisualStyleBackColor = true;
             // 
+            // RichTextBoxRaw
+            // 
+            RichTextBoxRaw.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RichTextBoxRaw.Location = new Point(-1, 0);
+            RichTextBoxRaw.Name = "RichTextBoxRaw";
+            RichTextBoxRaw.Size = new Size(784, 163);
+            RichTextBoxRaw.TabIndex = 0;
+            RichTextBoxRaw.Text = "";
+            // 
             // TabPageJSONResults
             // 
+            TabPageJSONResults.Controls.Add(RichTextBoxJSON);
             TabPageJSONResults.Location = new Point(4, 24);
             TabPageJSONResults.Name = "TabPageJSONResults";
             TabPageJSONResults.Padding = new Padding(3);
-            TabPageJSONResults.Size = new Size(760, 163);
+            TabPageJSONResults.Size = new Size(786, 163);
             TabPageJSONResults.TabIndex = 1;
             TabPageJSONResults.Text = "JSON";
             TabPageJSONResults.UseVisualStyleBackColor = true;
             // 
+            // RichTextBoxJSON
+            // 
+            RichTextBoxJSON.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            RichTextBoxJSON.Location = new Point(-1, 0);
+            RichTextBoxJSON.Name = "RichTextBoxJSON";
+            RichTextBoxJSON.Size = new Size(787, 160);
+            RichTextBoxJSON.TabIndex = 0;
+            RichTextBoxJSON.Text = "";
+            // 
             // TabPagHTMLResults
             // 
+            TabPagHTMLResults.Controls.Add(WebViewHTMLResponse);
             TabPagHTMLResults.Location = new Point(4, 24);
             TabPagHTMLResults.Name = "TabPagHTMLResults";
-            TabPagHTMLResults.Size = new Size(760, 163);
+            TabPagHTMLResults.Size = new Size(786, 163);
             TabPagHTMLResults.TabIndex = 2;
             TabPagHTMLResults.Text = "HTML";
             TabPagHTMLResults.UseVisualStyleBackColor = true;
+            // 
+            // WebViewHTMLResponse
+            // 
+            WebViewHTMLResponse.AllowExternalDrop = true;
+            WebViewHTMLResponse.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            WebViewHTMLResponse.CreationProperties = null;
+            WebViewHTMLResponse.DefaultBackgroundColor = Color.White;
+            WebViewHTMLResponse.Location = new Point(-1, 0);
+            WebViewHTMLResponse.Name = "WebViewHTMLResponse";
+            WebViewHTMLResponse.Size = new Size(787, 163);
+            WebViewHTMLResponse.TabIndex = 0;
+            WebViewHTMLResponse.ZoomFactor = 1D;
+            // 
+            // ListBoxResponseHistory
+            // 
+            ListBoxResponseHistory.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            ListBoxResponseHistory.FormattingEnabled = true;
+            ListBoxResponseHistory.ItemHeight = 15;
+            ListBoxResponseHistory.Location = new Point(12, 41);
+            ListBoxResponseHistory.Name = "ListBoxResponseHistory";
+            ListBoxResponseHistory.Size = new Size(264, 394);
+            ListBoxResponseHistory.TabIndex = 5;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1092, 450);
+            Controls.Add(ListBoxResponseHistory);
             Controls.Add(TabControlResults);
             Controls.Add(TabControlRequestParameters);
             Controls.Add(ButtonSendRequest);
             Controls.Add(TextBoxUrl);
             Controls.Add(ComboBoxMethodSelection);
+            MinimumSize = new Size(1108, 489);
             Name = "Form1";
             Text = "Poster";
             Resize += OnFormResized;
@@ -241,6 +294,10 @@
             PanelParameters.ResumeLayout(false);
             PanelParameters.PerformLayout();
             TabControlResults.ResumeLayout(false);
+            TabPageRawResults.ResumeLayout(false);
+            TabPageJSONResults.ResumeLayout(false);
+            TabPagHTMLResults.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)WebViewHTMLResponse).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -264,5 +321,9 @@
         private Button ButtonDeleteParameter;
         private Panel PanelParameters;
         private TabPage TabPagHTMLResults;
+        private RichTextBox RichTextBoxRaw;
+        private RichTextBox RichTextBoxJSON;
+        private Microsoft.Web.WebView2.WinForms.WebView2 WebViewHTMLResponse;
+        private ListBox ListBoxResponseHistory;
     }
 }

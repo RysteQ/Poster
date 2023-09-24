@@ -2,7 +2,6 @@
 
 internal enum MethodsEnum
 {
-    HTTP,
     POST,
     GET,
     PUT,

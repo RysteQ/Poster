@@ -2,9 +2,9 @@
 
 namespace Poster.Models;
 
-internal class HTTPMethodCall
+internal class HTTPRequestCall
 {
-    public HTTPMethodCall(MethodsEnum Method, string URL, Dictionary<string, string> Parameters, string Response)
+    public HTTPRequestCall(RequestEnum Method, string URL, Dictionary<string, string> Parameters, string Response)
     {
         this.Method = Method;
         this.URL = URL;
@@ -12,7 +12,7 @@ internal class HTTPMethodCall
         this.Response = Response;
     }
 
-    public MethodsEnum Method { get; set; }
+    public RequestEnum Method { get; set; }
     public string URL { get; set; }
     public Dictionary<string, string> Parameters { get; set; }
     public string Response { get; set; }

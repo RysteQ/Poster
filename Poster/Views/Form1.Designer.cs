@@ -86,6 +86,7 @@
             ButtonSendRequest.TabIndex = 2;
             ButtonSendRequest.Text = "Send";
             ButtonSendRequest.UseVisualStyleBackColor = true;
+            ButtonSendRequest.Click += OnButtonSendRequest;
             // 
             // TabControlRequestParameters
             // 
@@ -272,6 +273,7 @@
             ListBoxResponseHistory.Name = "ListBoxResponseHistory";
             ListBoxResponseHistory.Size = new Size(264, 394);
             ListBoxResponseHistory.TabIndex = 5;
+            ListBoxResponseHistory.DoubleClick += OnListBoxResponseHistoryDoubleClick;
             // 
             // Form1
             // 

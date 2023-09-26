@@ -1,6 +1,6 @@
 ﻿namespace Poster.Enums;
 
-internal enum MethodsEnum
+internal enum RequestEnum
 {
     POST,
     GET,

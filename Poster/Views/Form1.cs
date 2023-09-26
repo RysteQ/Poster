@@ -1,3 +1,5 @@
+using Poster.Enums;
+using Poster.Models;
 using Poster.Services.View_Services;
 
 namespace Poster;
@@ -66,5 +68,50 @@ public partial class Form1 : Form
         UILabelParameterController.MoveLabelParameters(ref LabelKey, ref LabelValue, TextBoxParameterKey, TextBoxParameterValue);
     }
 
+    private async void OnButtonSendRequest(object sender, EventArgs e)
+    {
+        Dictionary<string, string> parameter_keys_values = new();
+        string response = string.Empty;
+
+        // TODO
+        switch (Enum.Parse<RequestEnum>(ComboBoxMethodSelection.Text))
+        {
+            case RequestEnum.POST:
+                break;
+
+            case RequestEnum.GET:
+                break;
+
+            case RequestEnum.PUT:
+                break;
+
+            case RequestEnum.PATCH:
+                break;
+
+            case RequestEnum.DELETE:
+                break;
+        }
+
+        for (int i = 0; i < this.parameter_rows.Count; i++)
+            parameter_keys_values.Add(this.parameter_rows[i].Item2.Text, this.parameter_rows[i].Item3.Text);
+
+        this.request_calls.Add(new
+        (
+            Enum.Parse<RequestEnum>(ComboBoxMethodSelection.Text),
+            TextBoxUrl.Text.Split('?')[0],
+            parameter_keys_values,
+            response
+        ));
+    }
+
+    private void OnListBoxResponseHistoryDoubleClick(object sender, EventArgs e)
+    {
+        if (ListBoxResponseHistory.SelectedItems.Count != 1)
+            return;
+
+        // TODO
+    }
+
     private List<(CheckBox, TextBox, TextBox, Button)> parameter_rows = new();
+    private List<HTTPRequestCall> request_calls = new();
 }

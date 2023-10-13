@@ -63,7 +63,7 @@
             // 
             ComboBoxMethodSelection.DropDownStyle = ComboBoxStyle.DropDownList;
             ComboBoxMethodSelection.FormattingEnabled = true;
-            ComboBoxMethodSelection.Items.AddRange(new object[] { "HTTP", "POST", "GET", "PUT", "PATCH", "DELETE" });
+            ComboBoxMethodSelection.Items.AddRange(new object[] { "POST", "GET", "PUT", "PATCH", "DELETE" });
             ComboBoxMethodSelection.Location = new Point(12, 12);
             ComboBoxMethodSelection.Name = "ComboBoxMethodSelection";
             ComboBoxMethodSelection.Size = new Size(69, 23);

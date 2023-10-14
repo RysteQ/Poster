@@ -133,6 +133,7 @@
             CheckBoxIsParameterEnabled.Size = new Size(15, 14);
             CheckBoxIsParameterEnabled.TabIndex = 5;
             CheckBoxIsParameterEnabled.UseVisualStyleBackColor = true;
+            CheckBoxIsParameterEnabled.CheckedChanged += AddParametersToTextboxURL;
             // 
             // TextBoxParameterValue
             // 
@@ -142,6 +143,7 @@
             TextBoxParameterValue.Name = "TextBoxParameterValue";
             TextBoxParameterValue.Size = new Size(525, 23);
             TextBoxParameterValue.TabIndex = 7;
+            TextBoxParameterValue.TextChanged += AddParametersToTextboxURL;
             // 
             // ButtonDeleteParameter
             // 
@@ -158,7 +160,7 @@
             TextBoxParameterKey.Name = "TextBoxParameterKey";
             TextBoxParameterKey.Size = new Size(188, 23);
             TextBoxParameterKey.TabIndex = 6;
-            TextBoxParameterKey.TextChanged += OnTextBoxParameterKeyChanged;
+            TextBoxParameterKey.TextChanged += AddParametersToTextboxURL;
             // 
             // LabelValue
             // 

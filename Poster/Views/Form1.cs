@@ -43,8 +43,12 @@ public partial class Form1 : Form
         {
             UIParameterController.CreateUIParameterRow(ref this.parameter_rows, ref PanelParameters);
 
+            this.parameter_rows.Last().Enabled.CheckedChanged += AddParametersToTextboxURL;
             this.parameter_rows.Last().Key.TextChanged += OnTextBoxParameterKeyChanged;
+            this.parameter_rows.Last().Key.TextChanged += AddParametersToTextboxURL;
+            this.parameter_rows.Last().Value.TextChanged += AddParametersToTextboxURL;
             this.parameter_rows.Last().Delete.Click += OnButtonDeleteParameter;
+            this.parameter_rows.Last().Delete.Click += AddParametersToTextboxURL;
         }
     }
 
@@ -102,7 +106,8 @@ public partial class Form1 : Form
                     response = await HTTPMethodCaller.DELETE(TextBoxUrl.Text, parameter_keys_values);
                     break;
             }
-        } catch (Exception) { }
+        }
+        catch (Exception) { }
 
         this.request_calls.Add(new
         (
@@ -111,6 +116,8 @@ public partial class Form1 : Form
             parameter_keys_values,
             response
         ));
+
+        ListBoxResponseHistory.Items.Add($"{ComboBoxMethodSelection.Text} - {TextBoxUrl.Text.Split('?').First()}");
     }
 
     private void OnListBoxResponseHistoryDoubleClick(object sender, EventArgs e)
@@ -119,6 +126,17 @@ public partial class Form1 : Form
             return;
 
         // TODO
+    }
+
+    private void AddParametersToTextboxURL(object sender, EventArgs e)
+    {
+        string parameters_to_add = "?";
+
+        foreach (ParameterRow parameter_row in this.parameter_rows)
+            if (parameter_row.Enabled.Checked)
+                parameters_to_add += $"{parameter_row.Key.Text}={parameter_row.Value.Text}&";
+
+        TextBoxUrl.Text = TextBoxUrl.Text.Split('?').First() + parameters_to_add.TrimEnd('&');
     }
 
     private List<ParameterRow> parameter_rows = new();
